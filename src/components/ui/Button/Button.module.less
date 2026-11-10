@@ -1,0 +1,111 @@
+@import "../../../styles/mixins.less";
+
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: @space-3;
+  border: 1px solid transparent;
+  border-radius: @radius-pill;
+  font-family: @font-display;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    color @duration @ease-out,
+    border-color @duration @ease-out,
+    box-shadow @duration @ease-out,
+    transform @duration @ease-out;
+  .focus-ring();
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    transform: translateY(101%);
+    transition: transform 0.5s @ease-out;
+  }
+
+  &:hover::before {
+    transform: translateY(0);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.md {
+  padding: 12px 22px;
+  font-size: 15px;
+}
+
+.lg {
+  padding: 16px 28px;
+  font-size: 16px;
+}
+
+.primary {
+  background: @pear;
+  color: @text-on-pear;
+  box-shadow: 0 10px 30px -12px fade(@pear, 70%);
+
+  &::before {
+    background: @ghost;
+  }
+
+  &:hover {
+    box-shadow: 0 16px 40px -12px fade(@pear, 85%);
+  }
+}
+
+.ghost {
+  background: @surface;
+  color: @text;
+  border-color: @border;
+
+  &::before {
+    background: @surface-hover;
+  }
+
+  &:hover {
+    border-color: @border-strong;
+  }
+}
+
+.outline {
+  background: transparent;
+  color: @pear;
+  border-color: fade(@pear, 45%);
+
+  &::before {
+    background: @pear;
+  }
+
+  &:hover {
+    color: @text-on-pear;
+    border-color: @pear;
+  }
+}
+
+.label {
+  position: relative;
+}
+
+.icon {
+  display: inline-flex;
+  transition: transform @duration @ease-out;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .button:hover & {
+    transform: translate(2px, -2px) rotate(-8deg);
+  }
+}

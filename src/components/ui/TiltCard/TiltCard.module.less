@@ -1,0 +1,39 @@
+@import "../../../styles/mixins.less";
+
+.perspective {
+  perspective: 1200px;
+  height: 100%;
+}
+
+.card {
+  position: relative;
+  height: 100%;
+  border-radius: @radius-lg;
+  background: linear-gradient(160deg, fade(@ghost, 6%) 0%, fade(@ghost, 2%) 100%);
+  border: 1px solid @border;
+  transform-style: preserve-3d;
+  overflow: hidden;
+  transition: border-color @duration @ease-out;
+
+  &:hover {
+    border-color: fade(@pear, 35%);
+  }
+}
+
+.spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity @duration @ease-out;
+
+  .card:hover & {
+    opacity: 1;
+  }
+}
+
+.content {
+  position: relative;
+  height: 100%;
+  transform: translateZ(30px);
+}

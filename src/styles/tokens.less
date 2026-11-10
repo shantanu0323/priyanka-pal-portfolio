@@ -1,0 +1,64 @@
+// Brand palette
+@navy: #092742;
+@navy-deep: #051a2e;
+@navy-ink: #03111f;
+@navy-soft: #0e3558;
+@navy-line: #1a4670;
+@ghost: #fefffa;
+@pear: #daf94b;
+@pear-dim: #b9d63a;
+
+// Text
+@text: @ghost;
+@text-muted: fade(@ghost, 68%);
+@text-subtle: fade(@ghost, 45%);
+@text-on-pear: @navy-ink;
+
+// Surfaces
+@surface: fade(@ghost, 4%);
+@surface-hover: fade(@ghost, 7%);
+@border: fade(@ghost, 10%);
+@border-strong: fade(@ghost, 18%);
+
+// Typography (CSS variables are injected by next/font in _app)
+@font-display: var(--font-display), "Helvetica Neue", Arial, sans-serif;
+@font-body: var(--font-body), "Helvetica Neue", Arial, sans-serif;
+@font-mono: var(--font-mono), ui-monospace, Menlo, monospace;
+
+// Spacing scale
+@space-1: 4px;
+@space-2: 8px;
+@space-3: 12px;
+@space-4: 16px;
+@space-5: 24px;
+@space-6: 32px;
+@space-7: 48px;
+@space-8: 64px;
+@space-9: 96px;
+@space-10: 128px;
+
+// Radii
+@radius-sm: 8px;
+@radius-md: 14px;
+@radius-lg: 24px;
+@radius-xl: 36px;
+@radius-pill: 999px;
+
+// Layout
+@container: 1200px;
+@nav-height: 76px;
+
+// Breakpoints
+@bp-sm: 640px;
+@bp-md: 900px;
+@bp-lg: 1100px;
+
+// Motion
+@ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+@duration: 0.35s;
+
+// Effects
+@shadow-lg: 0 30px 80px -20px fade(#000, 55%);
+@glow-pear:
+  0 0 0 1px fade(@pear, 40%),
+  0 10px 40px -10px fade(@pear, 55%);

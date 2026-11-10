@@ -1,0 +1,62 @@
+@import "./tokens.less";
+
+.container() {
+  width: 100%;
+  max-width: @container;
+  margin-inline: auto;
+  padding-inline: @space-5;
+
+  @media (min-width: @bp-md) {
+    padding-inline: @space-6;
+  }
+}
+
+.section() {
+  position: relative;
+  padding-block: @space-9;
+
+  @media (min-width: @bp-md) {
+    padding-block: @space-10;
+  }
+}
+
+.glass(@alpha: 4%) {
+  background: fade(@ghost, @alpha);
+  border: 1px solid @border;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.focus-ring() {
+  &:focus-visible {
+    outline: 2px solid @pear;
+    outline-offset: 3px;
+  }
+}
+
+.from(@bp; @rules) {
+  @media (min-width: @bp) {
+    @rules();
+  }
+}
+
+.below(@bp; @rules) {
+  @media (max-width: (@bp - 1px)) {
+    @rules();
+  }
+}
+
+.eyebrow() {
+  font-family: @font-mono;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: @pear;
+}
+
+.pear-text() {
+  background: linear-gradient(100deg, @pear 0%, #f2ffa8 50%, @pear 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

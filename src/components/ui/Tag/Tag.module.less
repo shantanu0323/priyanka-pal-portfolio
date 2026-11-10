@@ -1,0 +1,33 @@
+@import "../../../styles/tokens.less";
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: @radius-pill;
+  font-family: @font-mono;
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: nowrap;
+  transition:
+    background @duration @ease-out,
+    border-color @duration @ease-out,
+    color @duration @ease-out;
+}
+
+.default {
+  color: @text-muted;
+  background: @surface;
+  border: 1px solid @border;
+
+  &:hover {
+    color: @text;
+    border-color: @border-strong;
+  }
+}
+
+.pear {
+  color: @pear;
+  background: fade(@pear, 8%);
+  border: 1px solid fade(@pear, 30%);
+}

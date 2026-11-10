@@ -1,0 +1,57 @@
+@import "../../../styles/mixins.less";
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: @space-4;
+  max-width: 760px;
+  margin-bottom: @space-8;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: @space-3;
+  .eyebrow();
+}
+
+.index {
+  color: @text-subtle;
+}
+
+.rule {
+  width: 32px;
+  height: 1px;
+  background: @pear;
+}
+
+.title {
+  font-size: clamp(36px, 5.6vw, 64px);
+
+  em {
+    font-style: normal;
+    .pear-text();
+  }
+}
+
+.mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+
+.line {
+  display: block;
+}
+
+.description {
+  color: @text-muted;
+  font-size: 18px;
+  max-width: 620px;
+}
