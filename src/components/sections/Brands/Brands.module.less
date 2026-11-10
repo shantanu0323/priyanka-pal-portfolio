@@ -1,0 +1,121 @@
+@import "../../../styles/mixins.less";
+
+.brands {
+  .section();
+  padding-top: @space-8;
+}
+
+.inner {
+  .container();
+}
+
+.grid {
+  display: grid;
+  gap: @space-5;
+
+  .from(@bp-sm; {
+    grid-template-columns: repeat(2, 1fr);
+  });
+
+  .from(@bp-md; {
+    grid-template-columns: repeat(3, 1fr);
+  });
+}
+
+.card {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  border-radius: @radius-lg;
+  overflow: hidden;
+  border: 1px solid @border;
+  isolation: isolate;
+  .focus-ring();
+
+  img {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s @ease-out;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, transparent 30%, fade(@navy-ink, 92%) 100%);
+  }
+
+  &:hover img,
+  &:focus-visible img {
+    transform: scale(1.06);
+  }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: @space-1;
+  padding: @space-5;
+
+  h3 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 14px;
+    color: @text-muted;
+  }
+}
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: @space-2;
+  margin-bottom: @space-2;
+
+  li {
+    padding: 4px 12px;
+    border-radius: @radius-pill;
+    background: @pear;
+    color: @text-on-pear;
+    font-family: @font-mono;
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
+
+.arrow {
+  position: absolute;
+  top: @space-4;
+  right: @space-4;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: fade(@navy-ink, 55%);
+  backdrop-filter: blur(8px);
+  transition:
+    background @duration @ease-out,
+    color @duration @ease-out,
+    transform @duration @ease-out;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .card:hover & {
+    background: @pear;
+    color: @text-on-pear;
+    transform: rotate(45deg);
+  }
+}

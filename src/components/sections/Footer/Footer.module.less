@@ -1,0 +1,44 @@
+@import "../../../styles/mixins.less";
+
+.footer {
+  border-top: 1px solid @border;
+}
+
+.inner {
+  .container();
+  display: flex;
+  flex-direction: column;
+  gap: @space-4;
+  padding-block: @space-6;
+  font-size: 14px;
+  color: @text-subtle;
+
+  .from(@bp-sm; {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  });
+}
+
+.links {
+  display: flex;
+  gap: @space-5;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: @space-2;
+    border-radius: @radius-sm;
+    transition: color @duration @ease-out;
+    .focus-ring();
+
+    &:hover {
+      color: @pear;
+    }
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}

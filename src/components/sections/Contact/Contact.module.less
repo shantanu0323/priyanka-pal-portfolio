@@ -1,0 +1,126 @@
+@import "../../../styles/mixins.less";
+
+.contact {
+  .container();
+  .section();
+}
+
+.panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: @space-5;
+  padding: @space-9 @space-5;
+  border-radius: @radius-xl;
+  background:
+    radial-gradient(600px 300px at 50% 0%, fade(@pear, 16%), transparent 70%),
+    linear-gradient(180deg, @navy-soft 0%, @navy 100%);
+  border: 1px solid @border-strong;
+  text-align: center;
+  overflow: hidden;
+
+  .from(@bp-md; {
+    padding: @space-10 @space-8;
+  });
+}
+
+.eyebrow {
+  .eyebrow();
+}
+
+.title {
+  max-width: 900px;
+  font-size: clamp(40px, 7vw, 88px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+}
+
+.description {
+  max-width: 560px;
+  color: @text-muted;
+  font-size: 18px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: @space-4;
+  margin-top: @space-4;
+  width: 100%;
+}
+
+.email {
+  display: inline-flex;
+  align-items: center;
+  gap: @space-3;
+  max-width: 100%;
+  padding: 18px 28px;
+  border-radius: @radius-pill;
+  background: @pear;
+  color: @text-on-pear;
+  font-family: @font-display;
+  font-size: clamp(16px, 2.6vw, 24px);
+  font-weight: 600;
+  word-break: break-all;
+  box-shadow: 0 20px 50px -18px fade(@pear, 80%);
+  transition:
+    box-shadow @duration @ease-out,
+    background @duration @ease-out;
+  .focus-ring();
+
+  svg {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+  }
+
+  &:hover {
+    background: @ghost;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: @space-3;
+}
+
+.copy {
+  display: inline-flex;
+  align-items: center;
+  gap: @space-2;
+  padding: 12px 20px;
+  border-radius: @radius-pill;
+  border: 1px solid @border-strong;
+  background: transparent;
+  font-family: @font-display;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition:
+    border-color @duration @ease-out,
+    color @duration @ease-out;
+  .focus-ring();
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    border-color: @pear;
+    color: @pear;
+  }
+}
+
+.status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}

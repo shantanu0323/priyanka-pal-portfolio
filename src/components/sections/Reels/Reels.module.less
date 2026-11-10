@@ -1,0 +1,77 @@
+@import "../../../styles/mixins.less";
+
+.reels {
+  .section();
+}
+
+.head {
+  .container();
+  display: flex;
+  flex-direction: column;
+
+  .from(@bp-lg; {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: @space-7;
+  });
+}
+
+.more {
+  margin-bottom: @space-7;
+
+  .from(@bp-lg; {
+    margin-bottom: @space-8;
+    flex-shrink: 0;
+  });
+}
+
+.track {
+  .container();
+  display: flex;
+  gap: @space-5;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: @space-3;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .from(@bp-lg; {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    overflow: visible;
+  });
+}
+
+.item {
+  flex: 0 0 min(82vw, 340px);
+  scroll-snap-align: center;
+
+  .from(@bp-lg; {
+    flex: initial;
+    min-width: 0;
+  });
+}
+
+.meta {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  gap: @space-2;
+  margin-bottom: @space-2;
+
+  h3 {
+    font-size: 20px;
+  }
+}
+
+.caption {
+  min-height: 3.2em;
+  margin-bottom: @space-4;
+  color: @text-muted;
+  font-size: 14px;
+  line-height: 1.5;
+}

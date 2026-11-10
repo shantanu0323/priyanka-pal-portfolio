@@ -1,0 +1,87 @@
+@import "../../../styles/mixins.less";
+
+.embed {
+  display: flex;
+  flex-direction: column;
+  gap: @space-3;
+  width: 100%;
+}
+
+.frame {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: @radius-lg;
+  overflow: hidden;
+  background: @ghost;
+  border: 1px solid @border;
+}
+
+.skeleton {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(110deg, @navy-soft 30%, @navy-line 50%, @navy-soft 70%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+
+  svg {
+    width: 36px;
+    height: 36px;
+    color: @text-subtle;
+  }
+}
+
+.iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  opacity: 0;
+  transition: opacity 0.5s @ease-out;
+}
+
+.loaded {
+  opacity: 1;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: @space-1;
+  align-self: flex-start;
+  font-family: @font-mono;
+  font-size: 13px;
+  color: @text-muted;
+  border-radius: @radius-sm;
+  transition: color @duration @ease-out;
+  .focus-ring();
+
+  svg {
+    width: 14px;
+    height: 14px;
+    transition: transform @duration @ease-out;
+  }
+
+  &:hover {
+    color: @pear;
+
+    svg {
+      transform: translate(2px, -2px);
+    }
+  }
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+  }
+}
