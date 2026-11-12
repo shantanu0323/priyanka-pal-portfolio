@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <clipPath id="photo"><rect x="760" y="40" width="400" height="550" rx="28"/></clipPath>
+    <radialGradient id="glow" cx="0.15" cy="0.1" r="0.8">
+      <stop offset="0" stop-color="#0e3558"/>
+      <stop offset="1" stop-color="#051a2e"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <image clip-path="url(#photo)" x="760" y="40" width="400" height="550" preserveAspectRatio="xMidYMid slice" xlink:href="data:image/jpeg;base64,{{PHOTO}}"/>
+  <rect x="760" y="40" width="400" height="550" rx="28" fill="none" stroke="#fefffa" stroke-opacity="0.18" stroke-width="2"/>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif" fill="#fefffa">
+    <g transform="translate(70 70)">
+      <rect width="56" height="56" rx="12" fill="#092742" stroke="#fefffa" stroke-opacity="0.18"/>
+      <path transform="scale(0.875)" fill="#daf94b" fill-rule="evenodd" d="M21 14h13a11 11 0 0 1 0 22h-6v14h-7zm7 7v8h6a4 4 0 0 0 0-8z"/>
+    </g>
+    <text x="146" y="108" font-size="26" font-weight="500" fill-opacity="0.68" letter-spacing="1">@priyankainberlin</text>
+
+    <text x="70" y="270" font-size="92" font-weight="700" letter-spacing="-2">Priyanka Pal</text>
+    <text x="70" y="340" font-size="36" font-weight="500" fill-opacity="0.85">Travel &amp; Lifestyle Content Creator</text>
+    <text x="70" y="388" font-size="36" font-weight="500" fill-opacity="0.85">Berlin · Reels · UGC</text>
+
+    <rect x="70" y="440" width="330" height="64" rx="32" fill="#daf94b"/>
+    <text x="235" y="482" font-size="28" font-weight="700" fill="#03111f" text-anchor="middle">195K+ monthly reach</text>
+
+    <text x="70" y="568" font-size="24" font-weight="500" fill-opacity="0.45" letter-spacing="1">priyankainberlin.com</text>
+  </g>
+</svg>

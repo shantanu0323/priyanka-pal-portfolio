@@ -1,0 +1,34 @@
+@import "./mixins.less";
+
+.main {
+  .container();
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: @space-4;
+  min-height: 100vh;
+  min-height: 100svh;
+  text-align: center;
+}
+
+.code {
+  font-family: @font-mono;
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  color: @pear;
+}
+
+.title {
+  max-width: 16ch;
+  font-family: @font-display;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.05;
+}
+
+.text {
+  margin-bottom: @space-4;
+  color: @text-muted;
+}

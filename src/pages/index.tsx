@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Backdrop from "src/components/layout/Backdrop/Backdrop";
 import ScrollProgress from "src/components/layout/ScrollProgress/ScrollProgress";
+import Seo from "src/components/layout/Seo/Seo";
 import About from "src/components/sections/About/About";
 import Brands from "src/components/sections/Brands/Brands";
 import Contact from "src/components/sections/Contact/Contact";
@@ -18,21 +19,10 @@ import { asset } from "src/lib/asset";
 import styles from "src/styles/Home.module.less";
 
 export default function Home() {
-  const { title, description, ogImage } = site.meta;
   return (
     <>
+      <Seo path="/" structuredData />
       <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={asset(ogImage)} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={asset(ogImage)} />
         <link rel="preload" as="image" href={asset(site.hero.photos[0].src)} />
       </Head>
       <a href="#main" className={styles.skip}>

@@ -62,10 +62,32 @@ export const photos = {
 
 export const site = {
   meta: {
+    url: "https://priyankainberlin.com",
+    siteName: "Priyanka Pal",
     title: "Priyanka Pal — Travel & Lifestyle Content Creator in Berlin",
+    titleTemplate: "%s · Priyanka Pal",
     description:
       "Berlin-based travel, food & lifestyle UGC creator. Reels, stories and UGC for restaurants, hotels and travel brands. 195K+ monthly reach.",
-    ogImage: photos.petra.src,
+    keywords: [
+      "Priyanka Pal",
+      "content creator Berlin",
+      "UGC creator",
+      "travel content creator",
+      "food influencer Berlin",
+      "lifestyle reels",
+      "Instagram reels",
+      "hotel content creator",
+    ],
+    author: "Priyanka Pal",
+    jobTitle: "Travel & Lifestyle Content Creator",
+    locale: "en_GB",
+    ogImage: {
+      src: "/og-image.jpg",
+      width: 1200,
+      height: 630,
+      alt: "Priyanka Pal in Petra, Jordan",
+    },
+    themeColor: "#092742",
   },
   name: { first: "Priyanka", last: "Pal" },
   email,
