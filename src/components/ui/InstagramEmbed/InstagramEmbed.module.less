@@ -10,11 +10,11 @@
 .frame {
   position: relative;
   width: 100%;
-  height: 600px;
   border-radius: @radius-lg;
   overflow: hidden;
   background: @ghost;
   border: 1px solid @border;
+  transition: height 0.4s @ease-out;
 }
 
 .skeleton {
@@ -35,10 +35,10 @@
 
 .iframe {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  top: 0;
+  left: 0;
   border: 0;
+  transform-origin: top left;
   opacity: 0;
   transition: opacity 0.5s @ease-out;
 }
