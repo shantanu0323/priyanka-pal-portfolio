@@ -14,13 +14,13 @@ export default function Packages() {
       <div className={styles.inner}>
         <SectionHeading
           eyebrow={packages.eyebrow}
-          index="04"
+          index="05"
           title={packages.title}
           description={packages.description}
         />
         <ul className={styles.grid}>
           {packages.items.map((p, i) => (
-            <Reveal as="li" key={p.name} delay={i * 0.08} className={styles.cell}>
+            <Reveal as="li" key={p.name} preset="blurUp" delay={i * 0.1} className={styles.cell}>
               <div className={cx(styles.card, p.highlight && styles.highlight)}>
                 {p.highlight && (
                   <span className={styles.badge}>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Button from "src/components/ui/Button/Button";
 import Magnetic from "src/components/ui/Magnetic/Magnetic";
 import Reveal from "src/components/ui/Reveal/Reveal";
+import WordReveal from "src/components/ui/WordReveal/WordReveal";
 import { mailto, site } from "src/data/site";
 import styles from "./Contact.module.less";
 
@@ -33,9 +34,7 @@ export default function Contact() {
         <Reveal>
           <p className={styles.eyebrow}>{contact.eyebrow}</p>
         </Reveal>
-        <Reveal delay={0.05}>
-          <h2 className={styles.title}>{contact.title}</h2>
-        </Reveal>
+        <WordReveal text={contact.title} className={styles.title} delay={0.05} />
         <Reveal delay={0.1}>
           <p className={styles.description}>{contact.description}</p>
         </Reveal>

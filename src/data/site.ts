@@ -1,4 +1,5 @@
 export type Photo = { src: string; alt: string };
+export type GalleryPhoto = Photo & { caption: string; wide?: boolean };
 export type NavLink = { label: string; href: string };
 export type Reel = {
   code: string;
@@ -25,7 +26,7 @@ export type Package = {
   cta: string;
 };
 
-const email = "priyankainberlin@gmail.com";
+const email = "collab@priyankainberlin.com";
 const instagram = "https://www.instagram.com/priyankainberlin";
 
 export const mailto = (subject: string) => `mailto:${email}?subject=${encodeURIComponent(subject)}`;
@@ -75,6 +76,7 @@ export const site = {
     links: [
       { label: "About", href: "#about" },
       { label: "Reels", href: "#reels" },
+      { label: "Gallery", href: "#gallery" },
       { label: "Stats", href: "#stats" },
       { label: "Packages", href: "#packages" },
       { label: "Contact", href: "#contact" },
@@ -162,6 +164,25 @@ export const site = {
       },
     ] satisfies Reel[],
     more: { label: "See more on Instagram", href: instagram },
+  },
+
+  gallery: {
+    eyebrow: "Gallery",
+    title: "Through my lens",
+    description: "A few favourite frames from the road and the table.",
+    items: [
+      { ...photos.petra, caption: "Petra, Jordan", wide: false },
+      { ...photos.wadiRum, caption: "Wadi Rum, Jordan", wide: true },
+      { ...photos.pyramids, caption: "Giza, Egypt", wide: false },
+      { ...photos.amman, caption: "Amman, Jordan", wide: false },
+      { ...photos.boat, caption: "Out on the water", wide: true },
+      { ...photos.tossakan, caption: "Tossakan, Berlin", wide: false },
+      { ...photos.districtMot, caption: "District Mot, Berlin", wide: false },
+      { ...photos.upperGrill, caption: "Upper Grill Bar, Berlin", wide: true },
+    ] satisfies GalleryPhoto[],
+    prevLabel: "Previous photos",
+    nextLabel: "Next photos",
+    closeLabel: "Close photo",
   },
 
   stats: {
