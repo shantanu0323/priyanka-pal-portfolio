@@ -1,12 +1,13 @@
 import { ArrowUp } from "lucide-react";
 import Instagram from "src/components/ui/InstagramIcon/InstagramIcon";
+import Reveal from "src/components/ui/Reveal/Reveal";
 import { site } from "src/data/site";
 import styles from "./Footer.module.less";
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.inner}>
+      <Reveal preset="fadeIn" className={styles.inner}>
         <p>{site.footer.copyright}</p>
         <div className={styles.links}>
           <a href={site.instagram} target="_blank" rel="noopener noreferrer">
@@ -16,7 +17,7 @@ export default function Footer() {
             {site.footer.backToTop} <ArrowUp aria-hidden />
           </a>
         </div>
-      </div>
+      </Reveal>
     </footer>
   );
 }

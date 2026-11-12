@@ -35,6 +35,16 @@ export const slideRight: Variants = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease } },
 };
 
+export const blurUp: Variants = {
+  hidden: { opacity: 0, y: 24, filter: "blur(12px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.9, ease } },
+};
+
+export const tiltUp: Variants = {
+  hidden: { opacity: 0, y: 60, rotate: 2, scale: 0.96 },
+  visible: { opacity: 1, y: 0, rotate: 0, scale: 1, transition: { duration: 1, ease } },
+};
+
 export const stagger = (staggerChildren = 0.08, delayChildren = 0): Variants => ({
   hidden: {},
   visible: { transition: { staggerChildren, delayChildren } },
@@ -46,7 +56,15 @@ export const lineReveal: Variants = {
   visible: { y: "0%", transition: { duration: 1, ease } },
 };
 
-export const presets = { fadeUp, fadeIn, scaleIn, slideLeft, slideRight } as const;
+export const presets = {
+  fadeUp,
+  fadeIn,
+  scaleIn,
+  slideLeft,
+  slideRight,
+  blurUp,
+  tiltUp,
+} as const;
 export type PresetName = keyof typeof presets;
 
 export const viewportOnce = { once: true, margin: "-80px" } as const;

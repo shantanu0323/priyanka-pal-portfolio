@@ -20,16 +20,20 @@ export default function About() {
     <section id="about" className={styles.about}>
       <div className={styles.grid}>
         <div ref={ref} className={styles.media}>
-          <motion.div className={styles.portrait} style={{ y }}>
-            <img src={asset(about.photo.src)} alt={about.photo.alt} loading="lazy" />
-          </motion.div>
-          <motion.div className={styles.polaroid} style={{ y: ySmall }}>
-            <img
-              src={asset(about.photoSecondary.src)}
-              alt={about.photoSecondary.alt}
-              loading="lazy"
-            />
-          </motion.div>
+          <Reveal>
+            <motion.div className={styles.portrait} style={{ y }}>
+              <img src={asset(about.photo.src)} alt={about.photo.alt} loading="lazy" />
+            </motion.div>
+          </Reveal>
+          <Reveal delay={0.3} className={styles.polaroidWrap}>
+            <motion.div className={styles.polaroid} style={{ y: ySmall }}>
+              <img
+                src={asset(about.photoSecondary.src)}
+                alt={about.photoSecondary.alt}
+                loading="lazy"
+              />
+            </motion.div>
+          </Reveal>
         </div>
 
         <div className={styles.text}>

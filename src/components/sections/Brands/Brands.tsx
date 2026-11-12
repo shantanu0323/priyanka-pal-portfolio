@@ -18,7 +18,7 @@ export default function Brands() {
         />
         <ul className={styles.grid}>
           {brands.items.map((b, i) => (
-            <Reveal as="li" key={b.name} delay={i * 0.1}>
+            <Reveal as="li" key={b.name} preset="fadeUp" delay={i * 0.12}>
               <a href={b.url} target="_blank" rel="noopener noreferrer" className={styles.card}>
                 <img src={asset(b.photo.src)} alt={b.photo.alt} loading="lazy" />
                 <div className={styles.overlay}>

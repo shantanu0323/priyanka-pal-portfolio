@@ -15,7 +15,7 @@ export default function Stats() {
       <div className={styles.inner}>
         <SectionHeading
           eyebrow={stats.eyebrow}
-          index="03"
+          index="04"
           title={stats.title}
           description={stats.description}
         />
@@ -23,7 +23,7 @@ export default function Stats() {
           {stats.items.map((s, i) => {
             const Icon = icons[i % icons.length];
             return (
-              <Reveal as="li" key={s.label} delay={i * 0.08} className={styles.cell}>
+              <Reveal as="li" key={s.label} preset="tiltUp" delay={i * 0.1} className={styles.cell}>
                 <div className={cx(styles.card, i === 0 && styles.featured)}>
                   <Icon className={styles.icon} aria-hidden />
                   <span className={styles.value}>
