@@ -180,8 +180,8 @@ export const site = {
       { ...photos.districtMot, caption: "District Mot, Berlin", wide: false },
       { ...photos.upperGrill, caption: "Upper Grill Bar, Berlin", wide: true },
     ] satisfies GalleryPhoto[],
-    prevLabel: "Previous photos",
-    nextLabel: "Next photos",
+    prevLabel: "Previous photo",
+    nextLabel: "Next photo",
     closeLabel: "Close photo",
   },
 

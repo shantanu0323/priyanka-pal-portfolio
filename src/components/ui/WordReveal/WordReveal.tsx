@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { lineReveal, stagger, viewportOnce } from "src/lib/motion";
-import { cx } from "src/lib/cx";
 import styles from "./WordReveal.module.less";
 
 type Props = {
@@ -16,7 +15,7 @@ export default function WordReveal({ text, as = "h2", className, delay = 0 }: Pr
   const words = text.split(" ");
   return (
     <Tag
-      className={cx(styles.words, className)}
+      className={className}
       aria-label={text}
       variants={stagger(0.06, delay)}
       initial="hidden"
