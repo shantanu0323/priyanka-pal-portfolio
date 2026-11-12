@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Reveal from "src/components/ui/Reveal/Reveal";
 import SectionHeading from "src/components/ui/SectionHeading/SectionHeading";
 import { site } from "src/data/site";
@@ -14,23 +14,48 @@ const items = gallery.items;
 
 export default function Gallery() {
   const [open, setOpen] = useState<number | null>(null);
+  const isOpen = open !== null;
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const openerRef = useRef<HTMLElement | null>(null);
 
   const step = useCallback(
     (dir: 1 | -1) => setOpen((i) => (i === null ? i : (i + dir + items.length) % items.length)),
     []
   );
 
+  // Lock scroll while open and hand focus back to the photo that opened the lightbox.
   useEffect(() => {
-    document.body.classList.toggle("no-scroll", open !== null);
-    if (open === null) return;
+    if (!isOpen) return;
+    document.body.classList.add("no-scroll");
+    return () => {
+      document.body.classList.remove("no-scroll");
+      openerRef.current?.focus();
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(null);
       if (e.key === "ArrowRight") step(1);
       if (e.key === "ArrowLeft") step(-1);
+      if (e.key === "Tab") {
+        const buttons = dialogRef.current?.querySelectorAll<HTMLElement>("button");
+        if (!buttons?.length) return;
+        const first = buttons[0];
+        const last = buttons[buttons.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [open, step]);
+  }, [isOpen, step]);
 
   const current = open === null ? null : items[open];
 
@@ -43,7 +68,10 @@ export default function Gallery() {
             <button
               type="button"
               className={styles.photo}
-              onClick={() => setOpen(i)}
+              onClick={(e) => {
+                openerRef.current = e.currentTarget;
+                setOpen(i);
+              }}
               tabIndex={copy ? -1 : undefined}
             >
               <img src={asset(p.src)} alt={copy ? "" : p.alt} loading="lazy" />
@@ -76,6 +104,7 @@ export default function Gallery() {
       <AnimatePresence>
         {current && (
           <motion.div
+            ref={dialogRef}
             className={styles.lightbox}
             role="dialog"
             aria-modal="true"
