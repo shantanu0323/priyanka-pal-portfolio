@@ -3,7 +3,8 @@ import type { NextConfig } from "next";
 // Derived from the GitHub repo name in CI; "<user>.github.io" repos are served from the root.
 const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "priyanka-pal-portfolio";
 const isUserSite = repoName.endsWith(".github.io");
-const isProd = process.env.NODE_ENV === "production";
+// The repo subpath is only needed on GitHub Pages; custom-domain hosts (e.g. Cloudflare Pages) serve from the root.
+const isProd = process.env.NODE_ENV === "production" && process.env.GITHUB_ACTIONS === "true";
 
 const lessLoader = {
   loader: "less-loader",
